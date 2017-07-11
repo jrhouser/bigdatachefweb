@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+    <head>
+  
+        <title>The big data chef recipe generator</title>
+        
+        
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+       
+       
+
+       
+
+     
+
+</script>
+
+        <style type="text/css">
+
+            body {
+  padding-top: 50px;
+}
+
+
+
+
+        </style>
+     
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96596338-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+    </head>
+    
+    
+    <body  >
+     <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">theBigDataChef</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="http://bigdatachefchartsandgraphs.herokuapp.com/how_it_works">How it works</a></li>
+        <li><a href="http://blog.thebigdatachef.com/2017">Recipe highlights</a></li>
+        <li><a href="http://bigdatachefchartsandgraphs.herokuapp.com/tidbits">Data tidbits</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="container">
+  
+  <div class="text-center">
+    <h1>Generate new recipe inspiration </h1>
+    <p class="lead">
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $(".js-example-basic-single").select2();
+});
+</script>
+
+
+	<form action="index" method="post" name ="constraints">
+ <div class="form-group">
+
+
+
+   <script type="text/javascript">
+      $(document).ready(function() { $(".js-example-basic-multiple").select2({placeholder: "Select some ingredients"});}) 
+    </script>
+
+    <select multiple class="js-example-basic-multiple" id="ingredients" name="ingredients">
+       {%- for ing,ing_id in ings -%}
+      <option  value={{ing_id|safe}}>{{ing|safe}}</option>
+
+      {%- endfor -%}
+    </select>
+
+
+
+<select class="js-example-basic-single" name="Category" id="Category" disabled>
+      <option value="any">Any Category</option>
+        {%- for cat,active in cats -%}
+        
+      <option value={{cat|safe}} {{active|safe}}>{{cat|safe}}</option>
+    
+
+       {%- endfor  -%}
+  </select>
+</div>
+ <div class="form-group">
+
+    <div class="btn-group btn-group-sm" role="group" aria-label="Programmatic enabling and disabling">
+    <button type="button" class="js-programmatic-enable btn btn-default active" name='bying' >
+      Ingredient
+      </button>
+      <button type="button" class="js-programmatic-disable btn btn-default" name='bycat'>
+        Category
+      </button>
+    </div>
+
+<script type="text/javascript" class="js-code-disabled">
+
+
+
+$(".js-programmatic-enable").on("click", function () {
+  $(".js-example-basic-single").prop("disabled", true);
+  $(".js-example-basic-multiple").prop("disabled", false);
+});
+ 
+$(".js-programmatic-disable").on("click", function () {
+  $(".js-example-basic-single").prop("disabled", false);
+  $(".js-example-basic-multiple").prop("disabled", true);
+});
+
+</script>
+
+</div>
+
+<div class="form-group">
+
+ <input type="submit" name="generator" value="Click for inspiration generation" class="btn btn-primary"/>
+
+  </div>
+  </form></p>
+
+
+ 
+  </div>
+
+
+
+
+ {% if error %}
+
+ <div class="text-center">
+<p>
+  Sorry, I couldn't generate a recipe for that combination of ingredients. Please pick fewer next time.
+</p>
+ </div>
+
+ {% endif %}
+
+  <p>
+  	<div class="container">
+			<div class="text-center">
+			
+			<p>
+			  <div class="row">
+
+        <p class="text-left">
+        <h4 class="text-left"><a href={{link}}>&nbsp;&nbsp;<a href={{link}}> {{header.encode('ascii').decode('unicode_escape')|safe}}</a>
+      </h4></p>
+			  {% for table in tables %}
+			  	<div class="col-md-4">
+			    {{ table.encode('ascii').decode('unicode_escape')|safe }}
+			</div>
+			  {% endfor %}
+			
+
+		</p>
+    
+     <div class="col-md-4">
+      <h3> 
+      {{header2.encode('ascii').decode('unicode_escape')|safe}}
+      </h3>
+      <p>
+        {% for direction in directions %}
+        <p> o {{direction.encode('ascii').decode('unicode_escape')| safe}}</p>
+        {% endfor %}
+
+      </p>
+      </div>
+
+    </div>
+    </div>
+
+  </p>
+
+
+</div><!-- /.container -->
+
+</body>
+
+

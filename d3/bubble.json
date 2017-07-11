@@ -1,0 +1,20 @@
+{"name":"bubble", "children":[{"name":"5TB","description":"ran map-reduce on 5TB of archived web data","children":[
+    {"name": "80,000 recipes","address":"#","note":""},
+    {"name": "500,000 links","address":"#","note":""},
+    {"name": "1,000 ingredients","address":"", "note":""}
+]},{"name": "Parsing", "description": "methods used to parse unstructured data",
+"children":[
+    {"name":"nltk","address":"#","note":"nltk was used to calculate enrichment of nouns in the recipes compared to frequency of occurrence in the Brown corpus."},
+    {"name":"spacey","address":"#", "note":"helps keep track of word elements and classifies things as nouns or numbers. "},
+    {"name":"nytimes-ingredient-phrase-tagger","address":"#","note":"this is a trained conditional random field model. It can reliable extract about half of the ingredients alone."}
+]},{"name":"Networking", "description":"","children":[
+    {"name":"Pick a recipe","address":"#","note":"make sure desired ingredients are in or connected to this recipe."},
+    {"name":"Pick an ingredient","address":"#","note":"pick from the ingredient network"},
+    {"name":"Crawl network","address":"#"}
+]},
+{"name":"Make", "description":"","children":[
+    {"name":"Cook","address":"#","note":"Make the base recipe"},
+    {"name":"Extra spice","address":"#","note":"pick one or more additional ingredients"},
+    {"name":"Enjoy","address":"#"}
+]}
+]}
